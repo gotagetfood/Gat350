@@ -58,6 +58,11 @@ namespace neu
 	class Engine : public Singleton<Engine>
 	{
 	public:
+		void Initialize();
+		void Shutdown();
+
+		void Update();
+
 		void Register();
 	};
 

@@ -10,6 +10,37 @@ namespace neu
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
 
+	void Engine::Initialize()
+	{
+		g_renderer.Initialize();
+		g_inputSystem.Initialize();
+		g_audioSystem.Initialize();
+		g_resources.Initialize();
+		g_physicsSystem.Initialize();
+		g_eventManager.Initialize();
+	}
+
+	void Engine::Update()
+	{
+		g_time.Tick();
+		g_eventManager.Update();
+		g_physicsSystem.Update();
+		g_inputSystem.Update();
+		g_audioSystem.Update();
+	}
+
+	void Engine::Shutdown()
+	{
+		Factory::Instance().Shutdown();
+
+		g_eventManager.Shutdown();
+		g_physicsSystem.Shutdown();
+		g_resources.Shutdown();
+		g_inputSystem.Shutdown();
+		g_audioSystem.Shutdown();
+		g_renderer.Shutdown();
+	}
+
 	void Engine::Register()
 	{
 		REGISTER_CLASS(Actor);
