@@ -16,7 +16,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Build\Assets\Shaders\basic.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic.prog">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
