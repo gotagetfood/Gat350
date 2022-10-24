@@ -16,6 +16,9 @@ namespace neu
 	const uint32_t key_left = SDL_SCANCODE_LEFT;
 	const uint32_t key_right = SDL_SCANCODE_RIGHT;
 
+	const uint32_t key_pgup = SDL_SCANCODE_PAGEUP;
+	const uint32_t key_pgdn = SDL_SCANCODE_PAGEDOWN;
+
 	void InputSystem::Initialize()
 	{
 		int numKeys;

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\stuff\school\year 2\term 2\c++\Gat350\ThirdParty\assimp-master\assimp-master\CMakeFiles\ba901c473698b76971a79542e2ba273c\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4759C93C-CD0C-39E1-B8EF-DF4DF2DA7A22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

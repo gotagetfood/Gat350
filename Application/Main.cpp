@@ -1,32 +1,48 @@
 #include "Engine.h" 
 #include <iostream> 
 
-float points[] = {
-  -0.5f,  0.5f,  0.0f,
-  -0.5f, -0.5f,  0.0f,
-   0.5f,  0.5f,  0.0f,
+float vertices[] = {
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
 
-   0.5f, -0.5f,  0.0f,
-  -0.5f, -0.5f,  0.0f,
-   0.5f,  0.5f,  0.0f
-};
+	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
 
-glm::vec3 color[] = {
-	{1,0,0}, //rgb
-	{1,1,0},
-	{0,1,1},
-	{0,0,1},
-	{1,1,0},
-	{0,1,1},
-};
+	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
 
-glm::vec2 texcoords[]{
-	{0,1},
-	{0,0},
-	{1,1},
-	{1,0},
-	{0,0},
-	{1,1}
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+
+	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f
 };
 
 int main(int argc, char** argv)
@@ -42,40 +58,12 @@ int main(int argc, char** argv)
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialized...");
 
-	// create position vertex buffer
-	GLuint pvbo = 0;
-	glGenBuffers(1, &pvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, pvbo);
-	glBufferData(GL_ARRAY_BUFFER, 18 * sizeof(float), points, GL_STATIC_DRAW);
-
-	// create cute vertex buffer
-	GLuint cvbo = 0;
-	glGenBuffers(1, &cvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, cvbo);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), color, GL_STATIC_DRAW);
-
-	// create trever vertex buffer
-	GLuint tvbo = 0;
-	glGenBuffers(1, &tvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec2), texcoords, GL_STATIC_DRAW);
-
-	// create vertex array
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, pvbo);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-
-	glEnableVertexAttribArray(1);
-	glBindBuffer(GL_ARRAY_BUFFER, cvbo);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-
-	glEnableVertexAttribArray(2);
-	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+	// create vertex buffer
+	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
+	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	vb-> SetAttribute(0, 3, 8 * sizeof(float), 0);
+	vb-> SetAttribute(1, 3, 8 * sizeof(float), 3*sizeof(float));
+	vb-> SetAttribute(2, 2, 8 * sizeof(float), 6*sizeof(float));
 
 	// create shader
 	//std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("Shaders/basic.vert",GL_VERTEX_SHADER);
@@ -97,6 +85,27 @@ int main(int argc, char** argv)
 	
 	//fun stuff
 	glm::mat4 mx{ 1 };
+	glm::mat4 model(1);
+	glm::mat4 projection = glm::perspective(45.0f, neu::g_renderer.GetWidth() / (float)neu::g_renderer.GetHeight(), 0.01f, 100.0f);
+
+	glm::vec3 cameraPosition = glm::vec3{ 0, 2, 2 };
+	float speed = 3;
+
+	std::vector<neu::Transform> t;
+	for (size_t i = 0; i < 50; i++) {
+		t.push_back({ {neu::random(i * -1,i + 1),neu::random(i * - 1,i + 1),neu::random(i * - 1,i + 1)},{neu::randomf(360.0f),90,0} });
+	}
+
+	/*
+	neu::Transform transforms[] = {
+		{ {0,0,0},{0,180,0} },
+		{ {0,0,2},{0,0,45} },
+		{ {0,1,0},{0,90,180} },
+		{ {5,0,1},{45,0,0} },
+		{ {0,3,0},{0,90,90} },
+		{ {2,0,1},{270,90,90} },
+		{ {0,2,5},{180,90,0} },
+	};*/
 
 	bool quit = false;
 	while (!quit)
@@ -105,16 +114,34 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		//fun stuff
-		material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 2, 1 });
+		//fun stuff movements
+		if (neu::g_inputSystem.GetKeyState(neu::key_left)  == neu::InputSystem::KeyState::Held) cameraPosition.x += speed * neu::g_time.deltaTime;
+		if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::KeyState::Held) cameraPosition.x -= speed * neu::g_time.deltaTime;
+		if (neu::g_inputSystem.GetKeyState(neu::key_up)    == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
+		if (neu::g_inputSystem.GetKeyState(neu::key_down)  == neu::InputSystem::KeyState::Held) cameraPosition.z -= speed * neu::g_time.deltaTime;
+		if (neu::g_inputSystem.GetKeyState(neu::key_pgup)  == neu::InputSystem::KeyState::Held) cameraPosition.y += speed * neu::g_time.deltaTime;
+		if (neu::g_inputSystem.GetKeyState(neu::key_pgdn)  == neu::InputSystem::KeyState::Held) cameraPosition.y -= speed * neu::g_time.deltaTime;
+
+		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{0,0,5}, glm::vec3{0,1,0});
+		//cameraPosition = { std::cos(neu::g_time.time), std::sin(neu::g_time.time), std::tan(neu::g_time.time) };
 		material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
 		material->GetProgram()->SetUniform("scale", 0.5f);
-		program->SetUniform("scale", std::sin(neu::g_time.time * 3));
-		program->SetUniform("transform", mx);
+		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time,0.0f);
+		//program->SetUniform("scale", std::sin(neu::g_time.time * 3));
+
 
 		neu::g_renderer.BeginFrame();
-		
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+			
+			for (size_t i = 0; i < t.size(); i++)
+			{
+				//int randomLmao = neu::random(0, t.size());
+				t[i].rotation += glm::vec3{ 45 * std::sin(i) * neu::g_time.deltaTime, 90*std::cos(i) * neu::g_time.deltaTime,90 * std::tan(i) * neu::g_time.deltaTime * 4 };
+				glm::mat4 mvp = projection * view * (glm::mat4)t[i];
+				material->GetProgram()->SetUniform("mvp", mvp);
+
+				vb->Draw();
+				
+			}
 		
 		neu::g_renderer.EndFrame();
 	}
