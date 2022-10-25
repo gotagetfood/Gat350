@@ -53,8 +53,7 @@ namespace neu
 
 		Color m_clearColor{ 0, 0, 0, 255 };
 
-		Matrix3x3 m_view;
-		Matrix3x3 m_viewport;
+
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;

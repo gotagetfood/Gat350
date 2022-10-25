@@ -59,11 +59,11 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 
 	// create vertex buffer
-	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
+	/*std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
 	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
 	vb-> SetAttribute(0, 3, 8 * sizeof(float), 0);
 	vb-> SetAttribute(1, 3, 8 * sizeof(float), 3*sizeof(float));
-	vb-> SetAttribute(2, 2, 8 * sizeof(float), 6*sizeof(float));
+	vb-> SetAttribute(2, 2, 8 * sizeof(float), 6*sizeof(float));*/
 
 	// create shader
 	//std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("Shaders/basic.vert",GL_VERTEX_SHADER);
@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 	//texture1->Bind();
 
 	// create material 
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
+	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
 	material->Bind();
 	
 	//fun stuff
@@ -96,16 +96,8 @@ int main(int argc, char** argv)
 		t.push_back({ {neu::random(i * -1,i + 1),neu::random(i * - 1,i + 1),neu::random(i * - 1,i + 1)},{neu::randomf(360.0f),90,0} });
 	}
 
-	/*
-	neu::Transform transforms[] = {
-		{ {0,0,0},{0,180,0} },
-		{ {0,0,2},{0,0,45} },
-		{ {0,1,0},{0,90,180} },
-		{ {5,0,1},{45,0,0} },
-		{ {0,3,0},{0,90,90} },
-		{ {2,0,1},{270,90,90} },
-		{ {0,2,5},{180,90,0} },
-	};*/
+	//ogre
+	auto m = neu::g_resources.Get<neu::Model>("models/ogre.obj");
 
 	bool quit = false;
 	while (!quit)
@@ -139,9 +131,13 @@ int main(int argc, char** argv)
 				glm::mat4 mvp = projection * view * (glm::mat4)t[i];
 				material->GetProgram()->SetUniform("mvp", mvp);
 
-				vb->Draw();
+				//vb->Draw();
 				
+				
+				m->m_vertexBuffer.Draw();
+
 			}
+
 		
 		neu::g_renderer.EndFrame();
 	}
