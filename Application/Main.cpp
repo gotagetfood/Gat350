@@ -58,20 +58,9 @@ int main(int argc, char** argv)
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialized...");
 
-	// load scene 
 	auto scene = std::make_unique<neu::Scene>();
+	scene->Create("Scenes/basic_lit.scn");
 
-	rapidjson::Document document;
-	bool success = neu::json::Load("Scenes/basic_lit.scn", document);
-	if (!success)
-	{
-		LOG("error loading scene file %s.", "Scenes/basic.scn");
-	}
-	else
-	{
-		scene->Read(document);
-		scene->Initialize();
-	}
 	auto actor = scene->GetActorFromName("Ogre");
 	if (actor)
 	{
