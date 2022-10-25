@@ -8,6 +8,10 @@ namespace neu
 {
 	struct Transform : public ISerializable
 	{
+		glm::vec3 getRight() { return ((glm::mat4)(*this))[0]; }
+		glm::vec3 getUp() { return ((glm::mat4)(*this))[1]; }
+		glm::vec3 getForward() { return ((glm::mat4)(*this))[2]; }
+
 		glm::vec3 position{ 0 };
 		glm::vec3 rotation{ 0 };
 		glm::vec3 scale{ 1 };

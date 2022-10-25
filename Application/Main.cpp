@@ -58,26 +58,30 @@ int main(int argc, char** argv)
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialized...");
 
-	// create vertex buffer
-	/*std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
-	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
-	vb-> SetAttribute(0, 3, 8 * sizeof(float), 0);
-	vb-> SetAttribute(1, 3, 8 * sizeof(float), 3*sizeof(float));
-	vb-> SetAttribute(2, 2, 8 * sizeof(float), 6*sizeof(float));*/
+	// load scene 
+	auto scene = std::make_unique<neu::Scene>();
 
-	// create shader
-	//std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("Shaders/basic.vert",GL_VERTEX_SHADER);
-	//std::shared_ptr<neu::Shader> fs = neu::g_resources.Get<neu::Shader>("Shaders/basic.frag",GL_FRAGMENT_SHADER);
+	rapidjson::Document document;
+	bool success = neu::json::Load("Scenes/basic_lit.scn", document);
+	if (!success)
+	{
+		LOG("error loading scene file %s.", "Scenes/basic.scn");
+	}
+	else
+	{
+		scene->Read(document);
+		scene->Initialize();
+	}
+	auto actor = scene->GetActorFromName("Ogre");
+	if (actor)
+	{
+		actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
+	}
 
 	// create program
 	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
 	program->Link();
 	program->Use();
-
-	// create texture 
-	//std::shared_ptr<neu::Texture> texture1 = neu::g_resources.Get<neu::Texture>("textrues/llama.jpg"); 
-	//std::shared_ptr<neu::Texture> texture2 = neu::g_resources.Get<neu::Texture>("textures/wood.png"); 
-	//texture1->Bind();
 
 	// create material 
 	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
@@ -116,32 +120,38 @@ int main(int argc, char** argv)
 
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{0,0,5}, glm::vec3{0,1,0});
 		//cameraPosition = { std::cos(neu::g_time.time), std::sin(neu::g_time.time), std::tan(neu::g_time.time) };
-		material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
-		material->GetProgram()->SetUniform("scale", 0.5f);
 		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time,0.0f);
 		//program->SetUniform("scale", std::sin(neu::g_time.time * 3));
 
+		scene->Update();
+
+		auto actor = scene->GetActorFromName("Ogre");
+		if (actor)
+		{
+			actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
+		}
 
 		neu::g_renderer.BeginFrame();
 			
-			for (size_t i = 0; i < t.size(); i++)
-			{
-				//int randomLmao = neu::random(0, t.size());
-				t[i].rotation += glm::vec3{ 45 * std::sin(i) * neu::g_time.deltaTime, 90*std::cos(i) * neu::g_time.deltaTime,90 * std::tan(i) * neu::g_time.deltaTime * 4 };
-				glm::mat4 mvp = projection * view * (glm::mat4)t[i];
-				material->GetProgram()->SetUniform("mvp", mvp);
+			//for (size_t i = 0; i < t.size(); i++)
+			//{
+			//	//int randomLmao = neu::random(0, t.size());
+			//	t[i].rotation += glm::vec3{ 45 * std::sin(i) * neu::g_time.deltaTime, 90*std::cos(i) * neu::g_time.deltaTime,90 * std::tan(i) * neu::g_time.deltaTime * 4 };
+			//	glm::mat4 mvp = projection * view * (glm::mat4)t[i];
+			//	material->GetProgram()->SetUniform("mvp", mvp);
 
-				//vb->Draw();
-				
-				
-				m->m_vertexBuffer.Draw();
+			//	//vb->Draw();
+			//	
+			//	
+			//	m->m_vertexBuffer.Draw();
 
-			}
-
+			//}
+			scene->Draw(neu::g_renderer);
 		
 		neu::g_renderer.EndFrame();
 	}
 
+	scene->RemoveAll();
 	neu::Engine::Instance().Shutdown();
 
 	return 0;
