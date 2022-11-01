@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 
 	auto scene = std::make_unique<neu::Scene>();
-	scene->Create("Scenes/basic_lit.scn");
+	scene->Create("Scenes/texture.scn");
 
 	auto actor = scene->GetActorFromName("Ogre");
 	if (actor)
@@ -68,9 +68,9 @@ int main(int argc, char** argv)
 	}
 
 	// create program
-	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
-	program->Link();
-	program->Use();
+	//std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
+	//program->Link();
+	//program->Use();
 
 	// create material 
 	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
@@ -117,7 +117,7 @@ int main(int argc, char** argv)
 		auto actor = scene->GetActorFromName("Ogre");
 		if (actor)
 		{
-			actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
+			//actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
 		}
 
 		neu::g_renderer.BeginFrame();

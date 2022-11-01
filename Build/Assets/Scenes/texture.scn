@@ -17,14 +17,14 @@
         "rotation": [
           0,
           0,
-          0
+          180
         ]
       },
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/sphere.obj",
-          "material_name": "Materials/ogre.mtrl"
+          "model_name": "Models/quad.obj",
+          "material_name": "Materials/muti.mtrl"
         }
       ]
     },
@@ -34,8 +34,8 @@
       "transform": {
         "position": [
           0,
-          -5,
-          0
+          0,
+          5
 
         ]
       },
@@ -43,9 +43,9 @@
         {
           "type": "LightComponent",
           "color": [
-            1.0,
-            0.5,
-            0.0
+            0.2,
+            0.2,
+            0.2
           ]
         }
       ]
