@@ -1,6 +1,6 @@
 {
   "program": "Shaders/texture_phong.prog",
-  "texture": "Textures/ogre_diffuse.bmp",
+  "texture": "Textures/lava.png",
   "uv_tilling": [ 1, 1 ],
   "uv_offset": [ 0, 0 ],
   "color": [

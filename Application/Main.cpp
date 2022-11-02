@@ -58,43 +58,20 @@ int main(int argc, char** argv)
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialized...");
 
-	auto scene = std::make_unique<neu::Scene>();
-	scene->Create("Scenes/texture.scn");
-
-	auto actor = scene->GetActorFromName("Ogre");
-	if (actor)
-	{
-		actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
-	}
-
-	// create program
-	//std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
-	//program->Link();
-	//program->Use();
-
-	// create material 
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
-	material->Bind();
-	
-	//fun stuff
-	glm::mat4 mx{ 1 };
 	glm::mat4 model(1);
-	glm::mat4 projection = glm::perspective(45.0f, neu::g_renderer.GetWidth() / (float)neu::g_renderer.GetHeight(), 0.01f, 100.0f);
 
 	glm::vec3 cameraPosition = glm::vec3{ 0, 2, 2 };
 	float speed = 3;
 
-	std::vector<neu::Transform> t;
-	for (size_t i = 0; i < 50; i++) {
-		t.push_back({ {neu::random(i * -1,i + 1),neu::random(i * - 1,i + 1),neu::random(i * - 1,i + 1)},{neu::randomf(360.0f),90,0} });
-	}
-
-	//ogre
-	auto m = neu::g_resources.Get<neu::Model>("models/ogre.obj");
+	auto scene = std::make_unique<neu::Scene>();
+	scene->Create("Scenes/texture.scn");
+	auto actor = scene->GetActorFromName("Ogre");
 
 	bool quit = false;
 	while (!quit)
 	{
+		auto material = neu::g_resources.Get<neu::Material>("Materials/muti.mtrl");
+
 		neu::Engine::Instance().Update();
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
@@ -108,13 +85,16 @@ int main(int argc, char** argv)
 		if (neu::g_inputSystem.GetKeyState(neu::key_pgdn)  == neu::InputSystem::KeyState::Held) cameraPosition.y -= speed * neu::g_time.deltaTime;
 
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{0,0,5}, glm::vec3{0,1,0});
-		//cameraPosition = { std::cos(neu::g_time.time), std::sin(neu::g_time.time), std::tan(neu::g_time.time) };
 		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time,0.0f);
-		//program->SetUniform("scale", std::sin(neu::g_time.time * 3));
+
+		if (material) 
+		{
+			//material->uv_offset.y += neu::g_time.deltaTime;
+			//material->uv_offset.x += neu::g_time.deltaTime;
+		}
 
 		scene->Update();
 
-		auto actor = scene->GetActorFromName("Ogre");
 		if (actor)
 		{
 			//actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;

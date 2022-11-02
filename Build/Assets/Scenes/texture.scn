@@ -2,7 +2,7 @@
   "actors": [
     {
       "type": "Actor",
-      "name": "Ogre",
+      "name": "Floor",
       "transform": {
         "position": [
           0,
@@ -10,8 +10,8 @@
           0
         ],
         "scale": [
-          1,
-          1,
+          2,
+          2,
           1
         ],
         "rotation": [

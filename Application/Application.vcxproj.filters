@@ -38,9 +38,6 @@
     <None Include="..\Build\Assets\Materials\ogre.mtrl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Materials\muti.mtrl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Build\Assets\Shaders\basic.frag">
       <Filter>Resource Files\basic</Filter>
     </None>
@@ -88,6 +85,12 @@
     </None>
     <None Include="..\Build\Assets\Shaders\texture_phong.vert">
       <Filter>Resource Files\textures</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\muti.mtrl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\teapot.mtrl">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

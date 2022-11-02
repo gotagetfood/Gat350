@@ -5,7 +5,7 @@
       "name": "Ogre",
       "transform": {
         "position": [
-          0,
+          -1,
           0,
           0
         ],
@@ -30,11 +30,67 @@
     },
     {
       "type": "Actor",
+      "name": "Teapot",
+      "transform": {
+        "position": [
+          1,
+          0,
+          0
+        ],
+        "scale": [
+          0.2,
+          0.2,
+          0.2
+        ],
+        "rotation": [
+          0.5,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/teapot.obj",
+          "material_name": "Materials/teapot.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Floor",
+      "transform": {
+        "position": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          2,
+          2,
+          1
+        ],
+        "rotation": [
+          -90,
+          0,
+          180
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/quad.obj",
+          "material_name": "Materials/muti.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
       "name": "Light",
       "transform": {
         "position": [
           0,
-          -5,
+          5,
           0
 
         ]
@@ -43,9 +99,9 @@
         {
           "type": "LightComponent",
           "color": [
-            1.0,
             0.5,
-            0.0
+            0.5,
+            0.5
           ]
         }
       ]

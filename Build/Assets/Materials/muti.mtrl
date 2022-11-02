@@ -1,6 +1,8 @@
 { 
-    "program":"shaders/basic_phong.prog", 
-    "texture":"Textures/llama.jpg", 
+    "program":"Shaders/texture_phong.prog",
+  "textures": [ "Textures/lava.png","Textures/llama.png" ],
+    "uv_tilling": [2, 2],
+    "uv_offset": [0, 0],
     "color":[ 
         1, 
         1, 
