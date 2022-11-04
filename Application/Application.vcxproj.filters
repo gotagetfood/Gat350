@@ -25,6 +25,9 @@
     <Filter Include="Resource Files\textures">
       <UniqueIdentifier>{5793ec50-6a40-41de-b7af-71dc4b53b8e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\normal">
+      <UniqueIdentifier>{20fdf152-8077-49d3-8be6-caa9cd7d4dcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -91,6 +94,15 @@
     </None>
     <None Include="..\Build\Assets\Materials\teapot.mtrl">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
+      <Filter>Resource Files\normal</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
+      <Filter>Resource Files\normal</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
+      <Filter>Resource Files\normal</Filter>
     </None>
   </ItemGroup>
 </Project>

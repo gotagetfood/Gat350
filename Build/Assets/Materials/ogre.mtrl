@@ -1,8 +1,6 @@
 {
-  "program": "Shaders/texture_phong.prog",
-  "texture": "Textures/ogre_diffuse.bmp",
-  "uv_tilling": [ 1, 1 ],
-  "uv_offset": [ 0, 0 ],
+  "program": "Shaders/normal_phong.prog",
+  "textures": [ "Textures/ogre_diffuse.bmp" ,"textures/ogre_normal.bmp"],
   "color": [
     1,
     1,

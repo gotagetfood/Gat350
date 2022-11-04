@@ -97,7 +97,7 @@ int main(int argc, char** argv)
 
 		if (actor)
 		{
-			//actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
+			actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
 		}
 
 		neu::g_renderer.BeginFrame();
