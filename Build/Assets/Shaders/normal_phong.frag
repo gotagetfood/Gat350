@@ -70,19 +70,19 @@ void main()
 	
 	vec4 diffuseColor = texture(diffuseMap, ttexcoord);
 	vec4 specularColor = texture(specularMap, ttexcoord);
-	vec4 specularColor = texture(emissiveMap, ttexcoord);
+	vec4 emissiveColor = texture(emissiveMap, ttexcoord);
 
-	fcolor	= emissiveColor + vec4(ambient + diffuse,1)*diffuceColor+(vec4(specular,1) * specularColor);
+	fcolor	= emissiveColor + vec4(ambient + diffuse,1) * diffuseColor + (vec4(specular,1) * specularColor);
 
 	// 0 - 1 -> -1 - 1
 
 	
 
 
-	 //vec4 texture_color = texture(diffuseMap,ttexcoord);
-	 //vec4 texture_color = mix(texture(texture1,ttexcoord), texture(texture2, ttexcoord),0.4);
+	// vec4 texture_color = texture(diffuseMap,ttexcoord);
+	///vec4 texture_color = mix(texture(texture1,ttexcoord), texture(texture2, ttexcoord),0.4);
 
 	//fcolor = texture_color;
-	 //fcolor = vec4(ambient + diffuse, 1) * texture_color + (vec4(specular, 1));
+	 //fcolor = vec4(ambient + diffuse, 1) * diffuseColor + (vec4(specular, 1));
 
 }
