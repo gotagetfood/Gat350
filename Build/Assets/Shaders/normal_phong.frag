@@ -1,7 +1,6 @@
 #version 430 core
  
 in vec3 position;
-//in vec3 normal;
 in vec2 texcoord;
 in mat3 tbn;
 
@@ -26,8 +25,8 @@ uniform Material material;
  
 layout (binding = 0) uniform sampler2D diffuseMap;
 layout (binding = 1) uniform sampler2D normalMap;
-layout (binding = 2) uniform sampler2D specularMap;
-layout (binding = 3) uniform sampler2D emissiveMap; 
+//layout (binding = 2) uniform sampler2D specularMap;
+//layout (binding = 3) uniform sampler2D emissiveMap; 
 
 void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
 {
@@ -55,12 +54,12 @@ void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
  
 void main()
 {
+	vec2 ttexcoord = (texcoord * material.uv_tilling) + material.uv_offset;
+
 	vec3 ambient;
 	vec3 diffuse;
 	vec3 specular;
-
 	
-	vec2 ttexcoord = (texcoord * material.uv_tilling) + material.uv_offset;
 	vec3 normal = texture(normalMap, ttexcoord).rgb;
 
 	normal = (normal * 2) - 1;
@@ -69,10 +68,12 @@ void main()
 	phong(position, normal, ambient, diffuse, specular);
 	
 	vec4 diffuseColor = texture(diffuseMap, ttexcoord);
-	vec4 specularColor = texture(specularMap, ttexcoord);
-	vec4 emissiveColor = texture(emissiveMap, ttexcoord);
 
-	fcolor	= emissiveColor + vec4(ambient + diffuse,1) * diffuseColor + (vec4(specular,1) * specularColor);
+	fcolor = vec4(ambient + diffuse, 1) * diffuseColor + vec4(specular, 1);
+	//vec4 specularColor = texture(specularMap, ttexcoord);
+	//vec4 emissiveColor = texture(emissiveMap, ttexcoord);
+
+	//fcolor	= emissiveColor + vec4(ambient + diffuse,1) * diffuseColor + (vec4(specular,1) * specularColor);
 
 	// 0 - 1 -> -1 - 1
 
