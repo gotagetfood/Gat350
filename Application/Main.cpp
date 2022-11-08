@@ -65,33 +65,40 @@ int main(int argc, char** argv)
 
 	auto scene = std::make_unique<neu::Scene>();
 	scene->Create("Scenes/texture.scn");
-	auto actor = scene->GetActorFromName("Ogre");
+
+	auto actor = scene->GetActorFromName("Light");
+	if (actor)
+	{
+		// move light using sin wave 
+		actor->m_transform.position.x = std::sin(neu::g_time.time);
+	}
+	actor = scene->GetActorFromName("Ogre");
 
 	bool quit = false;
 	while (!quit)
 	{
-		auto material = neu::g_resources.Get<neu::Material>("Materials/muti.mtrl");
+		//auto material = neu::g_resources.Get<neu::Material>("Materials/muti.mtrl");
 
 		neu::Engine::Instance().Update();
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
 		//fun stuff movements
-		if (neu::g_inputSystem.GetKeyState(neu::key_left)  == neu::InputSystem::KeyState::Held) cameraPosition.x += speed * neu::g_time.deltaTime;
-		if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::KeyState::Held) cameraPosition.x -= speed * neu::g_time.deltaTime;
-		if (neu::g_inputSystem.GetKeyState(neu::key_up)    == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
-		if (neu::g_inputSystem.GetKeyState(neu::key_down)  == neu::InputSystem::KeyState::Held) cameraPosition.z -= speed * neu::g_time.deltaTime;
-		if (neu::g_inputSystem.GetKeyState(neu::key_pgup)  == neu::InputSystem::KeyState::Held) cameraPosition.y += speed * neu::g_time.deltaTime;
-		if (neu::g_inputSystem.GetKeyState(neu::key_pgdn)  == neu::InputSystem::KeyState::Held) cameraPosition.y -= speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_left)  == neu::InputSystem::KeyState::Held) cameraPosition.x += speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::KeyState::Held) cameraPosition.x -= speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_up)    == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_down)  == neu::InputSystem::KeyState::Held) cameraPosition.z -= speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_pgup)  == neu::InputSystem::KeyState::Held) cameraPosition.y += speed * neu::g_time.deltaTime;
+		//if (neu::g_inputSystem.GetKeyState(neu::key_pgdn)  == neu::InputSystem::KeyState::Held) cameraPosition.y -= speed * neu::g_time.deltaTime;
 
-		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{0,0,5}, glm::vec3{0,1,0});
-		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time,0.0f);
+		//glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{0,0,5}, glm::vec3{0,1,0});
+		//model = glm::eulerAngleXYZ(0.0f, neu::g_time.time,0.0f);
 
-		if (material) 
-		{
-			//material->uv_offset.y += neu::g_time.deltaTime;
-			//material->uv_offset.x += neu::g_time.deltaTime;
-		}
+		//if (material) 
+		//{
+		//	//material->uv_offset.y += neu::g_time.deltaTime;
+		//	//material->uv_offset.x += neu::g_time.deltaTime;
+		//}
 
 		scene->Update();
 

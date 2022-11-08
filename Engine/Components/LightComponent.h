@@ -4,9 +4,9 @@
 namespace neu
 {
 	enum Type {
+		Point,
 		Directional,
-		Spot,
-		Point
+		Spot
 
 	};
 	class LightComponent : public Component
