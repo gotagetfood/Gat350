@@ -52,7 +52,7 @@
             1
           ],
           "type_name": "directional",
-          "cutoff": 45.0,
+          "cutoff": 30.0,
           "exponent": 5.0
         }
       ]

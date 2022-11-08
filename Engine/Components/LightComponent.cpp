@@ -14,6 +14,7 @@ namespace neu
 		// set programs light properties
 		for (auto& program : programs)
 		{
+			program->Use();
 			program->SetUniform("light.type", (int)type);
 			program->SetUniform("light.ambient", glm::vec3{ 0.2f });
 			program->SetUniform("light.color", color);

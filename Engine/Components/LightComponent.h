@@ -3,14 +3,15 @@
 
 namespace neu
 {
-	enum Type {
-		Point,
-		Directional,
-		Spot
-
-	};
+	
 	class LightComponent : public Component
 	{
+    public:
+		enum Type {
+			Point,
+			Directional,
+			Spot
+		};
 	public:
 		CLASS_DECLARATION(LightComponent)
 
@@ -20,8 +21,8 @@ namespace neu
 		virtual bool Read(const rapidjson::Value& value) override;
 
 	public:
-		glm::vec3 color{ 0 };
 		Type type = Type::Point;
+		glm::vec3 color{ 0 };
 		float cutoff = 45.0f;
 		float exponent = 50.0f;
 	};
