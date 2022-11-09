@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/fx/toon.prog",
+  "textures": [ "Textures/sun-diffuse.png" ,"textures/sun-normal.png"],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 

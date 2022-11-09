@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/texture_phong.prog",
+  "textures": [ "Textures/dragon-diffuse.png" ,"textures/dragon-normal.png"],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 

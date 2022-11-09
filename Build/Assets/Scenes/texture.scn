@@ -2,7 +2,7 @@
   "actors": [
     {
       "type": "Actor",
-      "name": "Ogre",
+      "name": "dragon",
       "transform": {
         "position": [
           0,
@@ -23,8 +23,36 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
-          "material_name": "Materials/ogre.mtrl"
+          "model_name": "Models/sunflower.glb",
+          "material_name": "Materials/sun.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "floor",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          4,
+          4,
+          4
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/plane.obj",
+          "material_name": "Materials/muti.mtrl"
         }
       ]
     },
@@ -34,8 +62,8 @@
       "transform": {
         "position": [
           0,
-          1,
-          2
+          4,
+          0
         ],
         "rotation": [
           85,
@@ -51,9 +79,9 @@
             1,
             1
           ],
-          "type_name": "directional",
-          "cutoff": 30.0,
-          "exponent": 5.0
+          "type_name": "spot",
+          "cutoff": 15.0,
+          "exponent": 50.0
         }
       ]
     },

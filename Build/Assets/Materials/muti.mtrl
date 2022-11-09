@@ -1,8 +1,8 @@
 { 
-    "program":"Shaders/texture_phong.prog",
+    "program":"Shaders/lit/texture.prog",
   "textures": [
-    "Textures/metal-diffuse.png",
-    "Textures/metal-specular.png"
+    "Textures/lava-diffuse.png",
+    "Textures/lava-normal.png"
   ],
     "uv_tilling": [1, 1],
     "uv_offset": [0, 0],
@@ -11,5 +11,5 @@
         1, 
         1 
     ], 
-    "shininess":32
+    "shininess":16
 } 
