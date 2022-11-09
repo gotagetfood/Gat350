@@ -56,6 +56,15 @@ namespace neu
                 vertex.tangent = { 0, 0, 0 };
             }
 
+            if (mesh->mTextureCoords[0])
+            {
+                vertex.texcoord = { mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y };
+            }
+            else
+            {
+                vertex.texcoord = { 0, 0 };
+            }
+
             vertices.push_back(vertex);
         }
 

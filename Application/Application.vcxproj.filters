@@ -28,6 +28,12 @@
     <Filter Include="Resource Files\normal">
       <UniqueIdentifier>{20fdf152-8077-49d3-8be6-caa9cd7d4dcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\unlit">
+      <UniqueIdentifier>{53f67e75-3821-4182-91f0-53e59649dbed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\fx">
+      <UniqueIdentifier>{f96dc5db-4a5e-4f9d-a6ac-59d9658ec8ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

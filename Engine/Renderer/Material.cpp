@@ -47,7 +47,7 @@ namespace neu
 		m_program->Use();
 		m_program->SetUniform("material.color", color);
 		m_program->SetUniform("material.shininess", shininess);
-		m_program->SetUniform("material.uv_tilling", uv_tilling);
+		m_program->SetUniform("material.uv_tiling", uv_tilling);
 		m_program->SetUniform("material.uv_offset", uv_offset);
 
 		for (size_t i = 0; i < m_textures.size(); i++)
