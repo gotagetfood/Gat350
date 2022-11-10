@@ -23,6 +23,12 @@ namespace neu
 
 	void Engine::Update()
 	{
+		SDL_Event event;
+		while(SDL_PollEvent(&event)) {
+		
+			g_gui.Update(event);
+		}
+
 		g_time.Tick();
 		g_eventManager.Update();
 		g_physicsSystem.Update();

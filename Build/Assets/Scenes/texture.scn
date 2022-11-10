@@ -2,7 +2,7 @@
   "actors": [
     {
       "type": "Actor",
-      "name": "dragon",
+      "name": "mainboi",
       "transform": {
         "position": [
           0,
