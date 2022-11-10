@@ -29,8 +29,7 @@ uniform struct Material
 	vec2 uv_offset;
 } material;
  
-layout (binding = 0) uniform sampler2D diffuseMap; // diffuse map
-//layout (binding = 1) uniform sampler2D specularMap; // specular map
+layout (binding = 0) uniform sampler2D diffuseMap;
  
  
 void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)

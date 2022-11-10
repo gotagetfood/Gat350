@@ -9,6 +9,7 @@ namespace neu
 	ResourceManager g_resources;
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
+	GUI g_gui;
 
 	void Engine::Initialize()
 	{
@@ -38,6 +39,7 @@ namespace neu
 		g_resources.Shutdown();
 		g_inputSystem.Shutdown();
 		g_audioSystem.Shutdown();
+		g_gui.Shutdown();
 		g_renderer.Shutdown();
 	}
 

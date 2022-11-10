@@ -57,6 +57,7 @@ int main(int argc, char** argv)
 
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialized...");
+	neu::g_gui.Initialize(neu::g_renderer);
 
 	glm::mat4 model(1);
 

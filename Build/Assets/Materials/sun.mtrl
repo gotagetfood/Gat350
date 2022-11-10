@@ -1,5 +1,5 @@
 {
-  "program": "Shaders/fx/toon.prog",
+  "program": "Shaders/lit/texture_normal.prog",
   "textures": [ "Textures/sun-diffuse.png" ,"textures/sun-normal.png"],
   "color": [
     1,
