@@ -25,6 +25,7 @@ namespace neu
 		}
 	}
 
+
 	bool LightComponent::Write(const rapidjson::Value& value) const
 	{
 		return true;

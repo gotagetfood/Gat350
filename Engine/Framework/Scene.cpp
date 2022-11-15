@@ -28,7 +28,7 @@ namespace neu
 		}
 	}
 
-	void Scene::Draw(Renderer& renderer)
+	void Scene::Render(Renderer& renderer)
 	{
 		// get camera / set renderer view/projection 
 		auto camera = GetActorFromName("Camera");
