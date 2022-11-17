@@ -1,50 +1,6 @@
 #include "Engine.h" 
 #include <iostream> 
 
-float vertices[] = {
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-
-	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-
-	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-
-	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f
-};
-
 int main(int argc, char** argv)
 {
 	LOG("Application Started...");
@@ -65,7 +21,7 @@ int main(int argc, char** argv)
 	float speed = 3;
 
 	auto scene = std::make_unique<neu::Scene>();
-	scene->Create("Scenes/texture.scn");
+	scene->Create("Scenes/cubemap.scn");
 
 	auto actor = scene->GetActorFromName("Light");
 	if (actor)
@@ -75,7 +31,7 @@ int main(int argc, char** argv)
 	}
 
 	float x = 0;
-	glm::vec3 pos{ 0,0,0 };
+	glm::vec3 rot{ 0,0,0 };
 	bool quit = false;
 	while (!quit)
 	{
@@ -89,24 +45,25 @@ int main(int argc, char** argv)
 		actor = scene->GetActorFromName("mainboi");
 		if (actor)
 		{
-			actor->m_transform.rotation.y += neu::g_time.deltaTime * x;
+			actor->m_transform.rotation = math::EulerToQuaternion(rot);
 		}
 		actor = scene->GetActorFromName("Light");
 		if (actor)
 		{
-			actor->m_transform.position = pos;//std::sin(neu::g_time.time);
+			actor->m_transform.position += std::sin(neu::g_time.time);
 		}
 
 		ImGui::Begin("Hello!"); {
-			ImGui::Button("Press Me!");
-			ImGui::SliderFloat("X", &x, -90.0f, 90.0f);
-			ImGui::SliderFloat3("X", &pos[0], -4.0f, 4.0f);
+			//ImGui::Button("Press Me!");
+			//ImGui::SliderFloat("X", &x, -90.0f, 90.0f);
+			ImGui::SliderFloat3("X", &rot[0], -360.0f, 360.0f);
 		} ImGui::End();
 
 		neu::g_renderer.BeginFrame(); {
 
+			scene->PreRender(neu::g_renderer);
+			scene->Render(neu::g_renderer);
 
-			scene->Draw(neu::g_renderer);
 			neu::g_gui.Draw();
 
 	    } neu::g_renderer.EndFrame();

@@ -147,11 +147,13 @@
     <None Include="..\Build\Assets\Materials\dragon.mtrl" />
     <None Include="..\Build\Assets\Materials\muti.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Materials\sun.mtrl" />
     <None Include="..\Build\Assets\Materials\teapot.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
     <None Include="..\Build\Assets\Scenes\basic_phong.scn" />
+    <None Include="..\Build\Assets\Scenes\cubemap.scn" />
     <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />
     <None Include="..\Build\Assets\Shaders\basic.prog" />
@@ -162,6 +164,9 @@
     <None Include="..\Build\Assets\Shaders\basic_phong.frag" />
     <None Include="..\Build\Assets\Shaders\basic_phong.prog" />
     <None Include="..\Build\Assets\Shaders\basic_phong.vert" />
+    <None Include="..\Build\Assets\Shaders\FX\skybox.frag" />
+    <None Include="..\Build\Assets\Shaders\FX\skybox.prog" />
+    <None Include="..\Build\Assets\Shaders\FX\skybox.vert" />
     <None Include="..\Build\Assets\Shaders\FX\toon.frag" />
     <None Include="..\Build\Assets\Shaders\FX\toon.prog" />
     <None Include="..\Build\Assets\Shaders\FX\toon.vert" />

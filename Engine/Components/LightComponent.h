@@ -3,6 +3,8 @@
 
 namespace neu
 {
+	// forward declaration
+	class Program;
 	
 	class LightComponent : public Component
 	{
