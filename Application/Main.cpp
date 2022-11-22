@@ -31,6 +31,8 @@ int main(int argc, char** argv)
 	}
 
 	float x = 0;
+	float ri = 1;
+	float i = 1;
 	glm::vec3 rot{ 0,0,0 };
 	bool quit = false;
 	while (!quit)
@@ -52,11 +54,21 @@ int main(int argc, char** argv)
 		{
 			actor->m_transform.position += std::sin(neu::g_time.time);
 		}
+		auto program = neu::g_resources.Get<neu::Program>("shaders/fx/trueref.prog");
+		if (program)
+		{
+			program->Use();
+			program->SetUniform("i", i );
+			program->SetUniform("ri", ri);
+		}
 
-		ImGui::Begin("Hello!"); {
+		ImGui::Begin("Transform"); {
 			//ImGui::Button("Press Me!");
 			//ImGui::SliderFloat("X", &x, -90.0f, 90.0f);
-			ImGui::SliderFloat3("X", &rot[0], -360.0f, 360.0f);
+			ImGui::DragFloat3("X", &rot[0], 1.0f, -360.0f, 360.0f);
+			ImGui::DragFloat("Refaction Index", &ri, 0.005f, 1.0f, 3.9f);
+			ImGui::DragFloat("Interpolation", &i, 0.005f, 0.0f, 1.0f);
+			//ImGui::SliderFloat3("X", &rot[0], -360.0f, 360.0f);
 		} ImGui::End();
 
 		neu::g_renderer.BeginFrame(); {

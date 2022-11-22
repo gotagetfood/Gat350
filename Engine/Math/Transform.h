@@ -8,9 +8,6 @@ namespace neu
 {
 	struct Transform : public ISerializable
 	{
-		glm::vec3 getRight() { return ((glm::mat4)(*this))[0]; }
-		glm::vec3 getUp() { return ((glm::mat4)(*this))[1]; }
-		glm::vec3 getForward() { return ((glm::mat4)(*this))[2]; }
 
 		glm::vec3 position{ 0 };
 		glm::quat rotation; 
@@ -25,6 +22,9 @@ namespace neu
 			scale{ scale } 
 		{}
 
+		glm::vec3 getRight() { return rotation * glm::vec3(1, 0, 0); }
+		glm::vec3 getUp() { return rotation * glm::vec3(0, 1, 0); }
+		glm::vec3 getForward() { return rotation * glm::vec3(0, 0, 1); }
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
