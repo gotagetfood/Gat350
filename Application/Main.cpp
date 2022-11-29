@@ -15,13 +15,22 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 	neu::g_gui.Initialize(neu::g_renderer);
 
+	//create framebuffer texture
+	auto texture = std::make_shared<neu::Texture>();
+	texture->CreateTexture(512, 512);
+	neu::g_resources.Add<neu::Texture>("fb_texture", texture);
+
+	//create framebuffer
+	auto framebuffer = neu::g_resources.Get<neu::Framebuffer>("framebuffer","fb_texture");
+	framebuffer->Unbind();
+
 	glm::mat4 model(1);
 
 	glm::vec3 cameraPosition = glm::vec3{ 0, 2, 2 };
 	float speed = 3;
 
 	auto scene = std::make_unique<neu::Scene>();
-	scene->Create("Scenes/cubemap.scn");
+	scene->Create("Scenes/rtt.scn");
 
 	auto actor = scene->GetActorFromName("Light");
 	if (actor)
@@ -42,7 +51,6 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		scene->Update();
 
 		actor = scene->GetActorFromName("mainboi");
 		if (actor)
@@ -71,10 +79,22 @@ int main(int argc, char** argv)
 			//ImGui::SliderFloat3("X", &rot[0], -360.0f, 360.0f);
 		} ImGui::End();
 
+		scene->Update();
+
+		glViewport(0, 0, 512, 512);
+		framebuffer->Bind();
+
 		neu::g_renderer.BeginFrame(); {
 
 			scene->PreRender(neu::g_renderer);
 			scene->Render(neu::g_renderer);
+			framebuffer->Unbind();
+
+			glViewport(0, 0, 800, 600);
+			neu::g_renderer.BeginFrame(); 
+
+				scene->PreRender(neu::g_renderer);
+				scene->Render(neu::g_renderer);
 
 			neu::g_gui.Draw();
 
