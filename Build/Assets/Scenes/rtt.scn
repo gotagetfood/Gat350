@@ -34,7 +34,35 @@
     },
     {
       "type": "Actor",
-      "name": "rtt",
+      "name": "mainboi",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/sunflower.glb",
+          "material_name": "Materials/sun.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "RTT",
       "transform": {
         "position": [
           5,

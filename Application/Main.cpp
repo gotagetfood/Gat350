@@ -51,6 +51,12 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
+		auto actors = scene->GetActorsFromTag("Coin");
+		float offset = 0.0f;
+		for (auto actor : actors) {
+			actor->m_transform.position.y = std::sin((neu::g_time.time * 1.4) + offset);
+			offset += 0.2f;
+		}
 
 		actor = scene->GetActorFromName("mainboi");
 		if (actor)
@@ -80,6 +86,12 @@ int main(int argc, char** argv)
 		} ImGui::End();
 
 		scene->Update();
+
+		auto actor = scene->GetActorFromName("Screen");
+		if (actor) {
+			actor->SetActive(false);
+		}
+			
 
 		glViewport(0, 0, 512, 512);
 		framebuffer->Bind();
