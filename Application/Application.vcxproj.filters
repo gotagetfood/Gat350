@@ -34,6 +34,9 @@
     <Filter Include="Resource Files\scn">
       <UniqueIdentifier>{020b1f6b-2e2e-468d-9ac1-33da8c7bd679}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\postprocess">
+      <UniqueIdentifier>{77547c79-e3a3-4956-9617-d99f94d53ff5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -198,6 +201,18 @@
       <Filter>Resource Files\scn</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.frag">
+      <Filter>Resource Files\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.prog">
+      <Filter>Resource Files\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.vert">
+      <Filter>Resource Files\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

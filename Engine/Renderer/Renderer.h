@@ -25,7 +25,8 @@ namespace neu
 		void Initialize();
 		void Shutdown();
 
-		void CreateWindow(const char* name, int width, int height, bool fullscreen = false);
+		void CreateWindow(const std::string& name, int width, int height, bool fullscreen = false);
+		//void CreateWindow(const char* name, int width, int height, bool fullscreen = false);
 		void BeginFrame();
 		void EndFrame();
 		//void SetClearColor(const Color& color) { clear_color = color; }
@@ -39,8 +40,11 @@ namespace neu
 		void Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f });
 		void Draw(std::shared_ptr<Texture> texture, const Rect& source,const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f }, bool flipH = false);
 
-		int GetWidth() { return m_width; }
-		int GetHeight() { return m_height; }
+		int GetWidth() { return width; }
+		int GetHeight() { return height; }
+
+		void SetViewport(int x, int y, int width, int height);
+		void RestoreViewport();
 
 		const glm::mat4& GetView() { return m_view; }
 		void SetView(const glm::mat4& view) { m_view = view; }
@@ -52,8 +56,6 @@ namespace neu
 		friend class GUI;
 
 	private:
-		int m_width = 0;
-		int m_height = 0;
 
 		glm::mat4 m_view{ 1 };
 		glm::mat4 m_projection{ 1 };
@@ -65,5 +67,9 @@ namespace neu
 	public:
 		glm::vec3 clear_color{ 0, 0, 0 };
 		glm::vec3 ambient_color{ 0, 0, 0 };
+
+		int width = 800;
+		int height = 600;
+		bool fullscreen = false;
 	};
 }

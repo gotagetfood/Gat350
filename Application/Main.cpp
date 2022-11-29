@@ -87,15 +87,19 @@ int main(int argc, char** argv)
 
 		scene->Update();
 
-		auto actor = scene->GetActorFromName("Screen");
-		if (actor) {
-			actor->SetActive(false);
+		{
+			auto actor = scene->GetActorFromName("Screen");
+			if (actor){
+				actor->SetActive(false);
+			}
 		}
 			
 
 		glViewport(0, 0, 512, 512);
 		framebuffer->Bind();
 
+		neu::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
 		neu::g_renderer.BeginFrame(); {
 
 			scene->PreRender(neu::g_renderer);
@@ -103,6 +107,7 @@ int main(int argc, char** argv)
 			framebuffer->Unbind();
 
 			glViewport(0, 0, 800, 600);
+			neu::g_renderer.RestoreViewport();
 			neu::g_renderer.BeginFrame(); 
 
 				scene->PreRender(neu::g_renderer);

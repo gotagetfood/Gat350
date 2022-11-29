@@ -147,6 +147,7 @@
     <None Include="..\Build\Assets\Materials\dragon.mtrl" />
     <None Include="..\Build\Assets\Materials\muti.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl" />
     <None Include="..\Build\Assets\Materials\reflection.mtrl" />
     <None Include="..\Build\Assets\Materials\refraction.mtrl" />
     <None Include="..\Build\Assets\Materials\rtt.mtrl" />
@@ -190,6 +191,9 @@
     <None Include="..\Build\Assets\Shaders\Lit\texture_normal.frag" />
     <None Include="..\Build\Assets\Shaders\Lit\texture_normal.prog" />
     <None Include="..\Build\Assets\Shaders\Lit\texture_normal.vert" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.frag" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.prog" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\PostProcess.vert" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.frag" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.prog" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.vert" />
